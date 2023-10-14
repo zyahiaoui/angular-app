@@ -1,0 +1,42 @@
+<div class="container p-5 my-5" [ngStyle]="{'width': '50%'}">
+    <div class="alert alert-danger" *ngIf="alertVar">
+        <strong>Erreur!</strong>
+      </div>
+    <div class="card">
+        <div class="card-header">Authentification</div>
+        <div class="card-body">
+            <form>
+                <div class="mb-3 mt-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input  type="email" class="form-control" id="email" 
+                    placeholder="Enter email" name="email"
+                    [(ngModel)]="logIn.email">
+                </div>
+                <div class="mb-3">
+                    <label for="pwd" class="form-label">Password:</label>
+                    <input  type="password" class="form-control" id="pwd"
+                     placeholder="Enter password" name="pswd"
+                     [(ngModel)]="logIn.pwd">
+                </div>
+
+                <button type="button" class="btn btn-primary btnStyle" 
+                (click)="login1()">Login</button>
+                <button type="button" class="btn btn-danger" [routerLink]="['register']">Register</button>
+            </form>
+            <!-- <form>
+                <div class="mb-3 mt-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input #email type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="pwd" class="form-label">Password:</label>
+                    <input #pwd type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                </div>
+
+                <button type="button" class="btn btn-primary btnStyle" 
+                (click)="login(email.value,pwd.value)">Login</button>
+                <button type="button" class="btn btn-danger">Register</button>
+            </form> -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="container p-5 my-5 border">
+
+    <button type="button" class="btn btn-primary btnStyle" [routerLink]="['list']">Utilisateur</button>
+    <button type="button" class="btn btn-success btnStyle" [routerLink]="['about']">A propos</button>
+    <button type="button" class="btn btn-danger" (click)="logOUT()">Déconnexion</button>
+<!-- <app-listuser></app-listuser> -->
+<router-outlet></router-outlet>
+
+</div>

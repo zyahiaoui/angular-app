@@ -1,0 +1,29 @@
+<div class="container p-5 my-5" [ngStyle]="{'width': '50%'}">
+    <div class="card">
+        <div class="card-header">Add User</div>
+        <div class="card-body">
+            <form>
+                <div class="mb-3 mt-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email"
+                        [(ngModel)]="addUser.email">
+                </div>
+                <div class="mb-3">
+                    <label for="pwd" class="form-label">Password:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd"
+                        [(ngModel)]="addUser.pwd">
+                </div>
+                <div class="mb-3">
+                    <label for="pwd" class="form-label">Role:</label>
+                    <select class="form-select" [(ngModel)]="addUser.role" name="role">
+                        <option value="USER">USER</option>
+                        <option value="ADMIN">ADMIN</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary btnStyle" (click)="save()">Save</button>
+                <button type="button" class="btn btn-success btnStyle" [routerLink]="['']">Login</button>
+                <button type="button" class="btn btn-danger">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>

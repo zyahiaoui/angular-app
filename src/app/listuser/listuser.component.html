@@ -1,0 +1,89 @@
+<div class="row">
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of listUser">
+        <td>{{user.email}}</td>
+        <td>{{user.role}}</td>
+        <td>
+          <button type="button" class="btn btn-link" (click)="open(modif,user)">Modifier</button>
+          <button type="button" class="btn btn-link" (click)="open(detail,user)">Détail</button>
+          <button type="button" class="btn btn-link" (click)="open(supp,user)">Supprimer</button>
+        </td>
+      </tr>
+    
+    </tbody>
+  </table>
+</div>
+
+<ng-template #detail let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Détail</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<strong>Email :</strong>{{userDetail.email}}<br>
+		<strong>Role :</strong> {{userDetail.role}}
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-danger" (click)="c('Save click')">Fermer</button>
+	</div>
+</ng-template>
+
+<ng-template #modif let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Modifier</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+  
+     
+              <form>
+                  <div class="mb-3 mt-3">
+                      <label for="email" class="form-label">Email:</label>
+                      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email"
+                      [(ngModel)]="modifDetail.email">
+                  </div>
+                  <div class="mb-3">
+                      <label for="pwd" class="form-label">Password:</label>
+                      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd"
+                          [(ngModel)]="modifDetail.pwd">
+                  </div>
+                  <div class="mb-3">
+                      <label for="pwd" class="form-label" >Role:</label>
+                      <select class="form-select" name="role"
+                       [(ngModel)]="modifDetail.role">
+                          <option value="USER">USER</option>
+                          <option value="ADMIN">ADMIN</option>
+                      </select>
+                  </div>
+                 
+              </form>
+      
+ 
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-success" (click)="modifUser();c('Save click')">Modifier</button>
+		<button type="button" class="btn btn-danger" (click)="c('Save click')">Fermer</button>
+	</div>
+</ng-template>
+
+<ng-template #supp let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Supprimer un utilisateur</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		Voulez vous supprimer cette utilisateur ?
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-danger" (click)="suppUser();c('Save click')">Supprimer</button>
+		<button type="button" class="btn btn-success" (click)="c('Save click')">Fermer</button>
+	</div>
+</ng-template>
